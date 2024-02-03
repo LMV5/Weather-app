@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer type="module" src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="location">
+        <p class="location__cityName">Ljubljana</p>
+        <input
+          class="location__input"
+          type="text"
+          placeholder="Search by location"
+        />
+        <button class="location__btnSearch">Search</button>
+      </div>
+
+      <div class="forecast">
+        <div class="forecast__btn-container">
+          <button class="btn btn--1 btn--active" data-tab="1">Today</button>
+          <button class="btn btn--2" data-tab="2">10 days</button>
+        </div>
+        <div class="forecast__cont">
+          <div
+            class="forecast__content forecast__content--1 forecast__content--active"
+          ></div>
+          <div class="forecast__content forecast__content--2">Content 2</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

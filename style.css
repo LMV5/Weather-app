@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #d9d5d5;
+}
+
+.location {
+  background-color: #706d6d;
+  display: flex;
+  padding: 3rem 3rem;
+  gap: 1.2rem;
+}
+
+.location__cityName {
+  font-size: 1.6rem;
+}
+
+.location__input {
+  font-size: 1.6rem;
+  outline: none;
+}
+
+.location__btnSearch {
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.2s ease-in;
+}
+
+.location__btnSearch:hover {
+  background-color: #fff;
+}
+
+.forecast {
+  background-color: #e4f84a;
+}
+
+.forecast__btn-container {
+  background-color: #75f7bf;
+  display: flex;
+  gap: 2rem;
+  padding: 3rem 3rem;
+}
+
+.btn {
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.2s ease-in;
+  transform: translateY(-50%);
+}
+
+.btn:hover {
+  background-color: #fff;
+}
+
+.btn--active {
+  background-color: #68e839;
+  transform: translateY(-66%);
+}
+
+.forecast__content {
+  padding: 3rem 3rem;
+  display: none;
+}
+
+.forecast__content--active {
+  background-color: #68e839;
+  display: block;
+}
+
+.spinner {
+  width: 2rem;
+  animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  width: 2rem;
+}
