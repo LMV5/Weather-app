@@ -1,4 +1,8 @@
+const container = document.querySelector(".container");
+const location = document.querySelector(".location");
+const cityName = document.querySelector(".location__cityName");
 const forecast = document.querySelector(".forecast");
+const error = document.querySelector(".error");
 const forecastBtnContainer = document.querySelector(".forecast__btn-container");
 const btns = document.querySelectorAll(".btn");
 
@@ -7,12 +11,19 @@ const forecastContent1 = document.querySelector(".forecast__content--1");
 const forecastContent2 = document.querySelector(".forecast__content--2");
 const contentActive = document.querySelector(".forecast__content--active");
 
+const searchBox = document.querySelector(".location__input");
+const searchBtn = document.querySelector(".location__btnSearch");
+
 const convertToCelsuis = function (deg) {
   return Math.trunc((deg - 32) * (5 / 9));
 };
 
 const convertToKmH = function (mph) {
   return Math.trunc(mph * 1, 609344);
+};
+
+const timeCut = function (time) {
+  return time.slice(0, 5);
 };
 
 // const renderSpinner = function (parentEl) {
@@ -40,14 +51,16 @@ forecastBtnContainer.addEventListener("click", function (e) {
     .classList.add("forecast__content--active");
 });
 
-const showWeatherToday = async function (country) {
+const renderWeatherToday = async function (city) {
   try {
     const res = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${country}?unitGroup=us&key=Z8AW25C8UNGXCU4SYU7ZP678B`
+      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=Z8AW25C8UNGXCU4SYU7ZP678B`
     );
     const data = await res.json();
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
+
+    cityName.textContent = `${data.address}`;
 
     const markup = `
     <div class="forecast__content-today">
@@ -61,12 +74,12 @@ const showWeatherToday = async function (country) {
             <div class="forecast__sunrise">
             <img class="icon" src="./svg/sunrise.svg" alt="sunrise icon" />
               <p>Sunrise</p>
-              <span>${data.days[0].sunrise}</span>
+              <span>${timeCut(data.days[0].sunrise)}</span>
             </div>
             <div class="forecast__sunset">
             <img class="icon" src="./svg/sunset.svg" alt="sunset icon" />
               <p>Sunset</p>
-              <span>${data.days[0].sunset}</span>
+              <span>${timeCut(data.days[0].sunset)}</span>
              </div>
              <div class="forecast__wind">
              <img class="icon" src="./svg/wind1.svg" alt="wind icon" />
@@ -89,13 +102,21 @@ const showWeatherToday = async function (country) {
              </div>
            </div>`;
 
+    console.log(data);
     // forecastContent.innerHTML = "";
     forecastContent1.insertAdjacentHTML("beforeend", markup);
+    forecastBtnContainer.style.display = "flex";
   } catch (err) {
-    console.log(err);
+    forecast.style.display = "none";
+    error.style.display = "block";
   }
 };
-showWeatherToday("Ljubljana");
+
+searchBtn.addEventListener("click", function () {
+  forecast.style.display = "block";
+  renderWeatherToday(searchBox.value);
+  searchBox.value = "";
+});
 
 // const showWeatherTenDays = async function (country) {
 //   try {
