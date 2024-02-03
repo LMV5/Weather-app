@@ -5,6 +5,7 @@ const forecast = document.querySelector(".forecast");
 const error = document.querySelector(".error");
 const forecastBtnContainer = document.querySelector(".forecast__btn-container");
 const btns = document.querySelectorAll(".btn");
+const spinner = document.querySelectorAll(".spinner");
 
 const forecastContent = document.querySelectorAll(".forecast__content");
 const forecastContent1 = document.querySelector(".forecast__content--1");
@@ -26,14 +27,14 @@ const timeCut = function (time) {
   return time.slice(0, 5);
 };
 
-// const renderSpinner = function (parentEl) {
-//   const markup = `
-//     <div class="spinner">
-//       <img src="./svg/spinner.svg" alt="spinner icon" />
-//     </div>`;
-//   parentEl.insertAdjacentHTML("afterbegin", markup);
-// };
-// renderSpinner(forecast);
+const renderSpinner = function (parentEl) {
+  const markup = `
+    <div class="spinner">
+      <img src="./svg/spinner.svg" alt="spinner icon" />
+    </div>`;
+  //   parentEl.insertAdjacentHTML("beforeend", markup);
+  parentEl.innerHTML = markup;
+};
 
 forecastBtnContainer.addEventListener("click", function (e) {
   const target = e.target.closest(".btn");
@@ -53,6 +54,7 @@ forecastBtnContainer.addEventListener("click", function (e) {
 
 const renderWeatherToday = async function (city) {
   try {
+    renderSpinner(forecastContent1);
     const res = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=Z8AW25C8UNGXCU4SYU7ZP678B`
     );
@@ -104,11 +106,15 @@ const renderWeatherToday = async function (city) {
 
     console.log(data);
     // forecastContent.innerHTML = "";
-    forecastContent1.insertAdjacentHTML("beforeend", markup);
+    forecastContent1.innerHTML = markup;
+    // forecastContent1.insertAdjacentHTML("beforeend", markup);
     forecastBtnContainer.style.display = "flex";
+    // spinner.style.display = "none";
   } catch (err) {
-    forecast.style.display = "none";
     error.style.display = "block";
+    forecast.style.display = "none";
+    forecastBtnContainer.style.display = "none";
+    cityName.style.display = "none";
   }
 };
 
