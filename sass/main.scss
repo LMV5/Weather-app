@@ -1,0 +1,148 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background: linear-gradient(320deg, #9deaf8, #4d91f7);
+  max-width: 80vw;
+  min-height: 18rem;
+  margin: 6rem auto;
+  border-radius: 2rem;
+  text-align: center;
+}
+
+.location {
+  display: flex;
+  padding: 3rem 3rem;
+  gap: 1.2rem;
+  position: relative;
+
+  &__cityName {
+    font-size: 3rem;
+    position: absolute;
+    right: 5rem;
+    top: 8rem;
+  }
+
+  &__input {
+    font-size: 1.6rem;
+    outline: none;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  &__btnSearch {
+    font-size: 1.6rem;
+    border: none;
+    transition: all 0.2s ease-in;
+    border-radius: 50%;
+    width: 4rem;
+    cursor: pointer;
+    background: transparent;
+  }
+
+  &__btnSearch:hover {
+    box-shadow: 0 0 30px #2446ed;
+  }
+}
+
+.forecast {
+  display: none;
+
+  &__btn-container {
+    display: none;
+    justify-content: flex-start;
+    padding: 3rem 8rem;
+    gap: 4rem;
+  }
+
+  &_content {
+    padding: 3rem 3rem;
+    display: none;
+
+    &--active {
+      /* background-color: #68e839; */
+      display: flex;
+    }
+  }
+
+  &__content-today {
+    display: flex;
+    gap: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  &__content-today p {
+    font-size: 1rem;
+  }
+
+  &__content-today div {
+    padding-top: 1rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 30px;
+    background-color: rgba(108, 107, 107, 0.15);
+    /* backdrop-filter: blur(7px); */
+  }
+
+  &__content-tenDays {
+    padding-top: 1rem;
+    width: 7rem;
+    height: 7rem;
+    border-radius: 30px;
+    background-color: rgba(108, 107, 107, 0.15);
+    /* backdrop-filter: blur(7px); */
+  }
+}
+
+.btn {
+  font-size: 1.6rem;
+  border-radius: 10px;
+  border: none;
+  transition: all 0.2s ease-in;
+  transform: translateY(-50%);
+
+  &:hover {
+    background-color: #fff;
+  }
+
+  &--active {
+    background-color: #68e839;
+    transform: translateY(-66%);
+  }
+}
+
+.spinner {
+  width: 2rem;
+  animation: rotate 2s infinite linear;
+  margin: 0 auto;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  width: 2rem;
+}
+
+.error {
+  /* display: none; */
+  font-size: 1.4rem;
+  padding-bottom: 1rem;
+}
+
+.feelslikemax {
+  font-size: 1rem;
+}
+
+.feelslikemin {
+  font-size: 1rem;
+}

@@ -1,17 +1,12 @@
 {
   "name": "weather-app",
   "version": "1.0.0",
-  "description": "",
+  "description": "weather web application",
   "index": "index.html",
   "scripts": {
-    "watch:sass": "node-sass main.scss style.css -w",
-    "devserver": "live-server",
-    "compile:sass": "node-sass main.scss style.comp.css",
-    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' style.comp.css -o style.prefix.css",
-    "compress:css": "node-sass style.prefix.css style.css --output-style compressed",
-    "build:css": "npm-run-all compile:sass prefix:css compress:css"
+    "compile:sass": "node-sass sass/main.scss style.css -w"
   },
-  "author": "",
+  "author": "Marina Lapteva",
   "license": "ISC",
   "dependencies": {
     "sass": "^1.70.0"
@@ -19,6 +14,7 @@
   "devDependencies": {
     "autoprefixer": "^10.4.17",
     "concat": "^1.0.3",
+    "node-sass": "^9.0.0",
     "postcss": "^8.4.34"
   }
 }
