@@ -4,11 +4,21 @@
   "description": "",
   "index": "index.html",
   "scripts": {
-    "compile:sass": "node-sass main.sass style.comp.css"
+    "watch:sass": "node-sass main.scss style.css -w",
+    "devserver": "live-server",
+    "compile:sass": "node-sass main.scss style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' style.comp.css -o style.prefix.css",
+    "compress:css": "node-sass style.prefix.css style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "sass": "^1.70.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "concat": "^1.0.3",
+    "postcss": "^8.4.34"
   }
 }

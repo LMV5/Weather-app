@@ -105,6 +105,17 @@
   /* backdrop-filter: blur(7px); */
 }
 
+.forecast__content-tenDays {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 30px;
+  background-color: rgba(108, 107, 107, 0.15);
+  /* backdrop-filter: blur(7px); */
+}
+
 .spinner {
   width: 2rem;
   animation: rotate 2s infinite linear;
@@ -128,4 +139,12 @@
   display: none;
   font-size: 1.4rem;
   padding-bottom: 1rem;
+}
+
+.feelslikemax {
+  font-size: 1rem;
+}
+
+.feelslikemin {
+  font-size: 1rem;
 }
