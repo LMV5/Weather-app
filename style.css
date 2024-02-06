@@ -83,7 +83,7 @@
 
 .forecast__content--active {
   /* background-color: #68e839; */
-  display: block;
+  display: flex;
 }
 
 .forecast__content-today {
@@ -106,8 +106,6 @@
 }
 
 .forecast__content-tenDays {
-  display: flex;
-  flex-direction: column;
   padding-top: 1rem;
   width: 7rem;
   height: 7rem;
@@ -115,6 +113,16 @@
   background-color: rgba(108, 107, 107, 0.15);
   /* backdrop-filter: blur(7px); */
 }
+
+/* .forecast__content--2 {
+  display: flex; */
+/* padding-top: 1rem;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 30px;
+  background-color: rgba(108, 107, 107, 0.15);
+  backdrop-filter: blur(7px); */
+/* } */
 
 .spinner {
   width: 2rem;
@@ -136,7 +144,7 @@
 }
 
 .error {
-  display: none;
+  /* display: none; */
   font-size: 1.4rem;
   padding-bottom: 1rem;
 }
