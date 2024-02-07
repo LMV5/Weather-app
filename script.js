@@ -153,26 +153,26 @@ const renderWeatherToday = async function (city) {
 
     for (const day of daysArray) {
       markupTenDays += `
-      <div class="forecast__content-tenDays">
-      <div class="forecast__content-tenDays-icon">
-        <img class="icon" src="./svg/${day.icon}.svg" alt="icon" />
-      </div>
-      <div class="forecast__content-tenDays-date">
-        <span class="content-tenDays-day">${formatDate(day.datetime)}</span>
-      </div>
-      <div class="forecast__content-tenDays-temp">
-        <span class="content-tenDays-tempmax">${convertToCelsuis(
-          day.tempmax
-        )} &deg;</span>
-        <span class="content-tenDays-tempmin">${convertToCelsuis(
-          day.tempmin
-        )} &deg;</span>
-      </div>
+      <div class="forecast__content-tenDays-day">
+        <div class="forecast__content-tenDays-icon">
+          <img class="icon" src="./svg/${day.icon}.svg" alt="icon" />
+        </div>
+        <div class="forecast__content-tenDays-date">
+          <span class="content-tenDays-day">${formatDate(day.datetime)}</span>
+        </div>
+        <div class="forecast__content-tenDays-temp">
+          <span class="content-tenDays-tempmax">${convertToCelsuis(
+            day.tempmax
+          )} &deg;</span>
+          <span class="content-tenDays-tempmin">${convertToCelsuis(
+            day.tempmin
+          )} &deg;</span>
+        </div>
     </div>
       `;
     }
     forecastContent1.innerHTML = markupToday;
-    forecastContent2.innerHTML = markupTenDays;
+    forecastContentTenDays.innerHTML = markupTenDays;
     console.log(data);
   } catch (err) {
     error.textContent = "We can not find the city. Please try again";

@@ -85,9 +85,18 @@
   /* backdrop-filter: blur(7px); */
 }
 .forecast__content-tenDays {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-gap: 2rem;
+  justify-items: center;
+  padding: 1rem;
+}
+.forecast__content-tenDays .forecast__content-tenDays-day {
+  display: grid;
   padding-top: 1rem;
-  width: 7rem;
-  height: 7rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 30px;
   background-color: rgba(108, 107, 107, 0.15);
   /* backdrop-filter: blur(7px); */
