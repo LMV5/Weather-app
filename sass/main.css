@@ -16,7 +16,7 @@ body {
 
 .container {
   background: linear-gradient(320deg, #9deaf8, #4d91f7);
-  width: 70rem;
+  width: 90rem;
   min-height: 15rem;
   margin: 6rem auto;
   border-radius: 2rem;
@@ -87,8 +87,8 @@ body {
 }
 .forecast__content-tenDays {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-gap: 2rem;
   justify-items: center;
   padding: 1rem;

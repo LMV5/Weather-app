@@ -62,7 +62,7 @@ forecastBtnContainer.addEventListener("click", function (e) {
 
 searchBtn.addEventListener("click", function () {
   forecast.style.display = "block";
-  renderWeatherToday(searchBox.value);
+  renderWeather(searchBox.value);
   searchBox.value = "";
 });
 
@@ -91,7 +91,7 @@ const formatDate = function (inputDate) {
   return `${day} ${month} ${date}`;
 };
 
-const renderWeatherToday = async function (city) {
+const renderWeather = async function (city) {
   try {
     error.textContent = "";
     renderSpinner(forecastContent1);
