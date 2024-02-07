@@ -15,15 +15,25 @@ body {
 }
 
 .container {
-  background: linear-gradient(320deg, #9deaf8, #4d91f7);
   width: 90rem;
   min-height: 20rem;
   margin: 6rem auto;
   border-radius: 2rem;
   text-align: center;
+  background-color: rgba(248, 242, 242, 0.132);
+  -webkit-backdrop-filter: blur(7px);
+          backdrop-filter: blur(7px);
 }
 .container__header {
   font-size: 6rem;
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  background-size: cover;
+  max-width: 100vh;
+  max-height: 100vw;
 }
 
 .location {
@@ -43,6 +53,7 @@ body {
   outline: none;
   padding: 1rem;
   border-radius: 2rem;
+  background-color: rgba(255, 255, 255, 0.5019607843);
 }
 .location__btnSearch {
   font-size: 1.6rem;
@@ -54,7 +65,7 @@ body {
   background: transparent;
 }
 .location__btnSearch:hover {
-  box-shadow: 0 0 30px #2446ed;
+  box-shadow: 0 0 30px #e1e2e6;
 }
 
 .forecast {

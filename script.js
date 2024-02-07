@@ -1,28 +1,17 @@
 import * as helper from "./helper.js";
 
-const container = document.querySelector(".container");
-const location = document.querySelector(".location");
 const cityName = document.querySelector(".location__cityName");
 const searchBox = document.querySelector(".location__input");
 const searchBtn = document.querySelector(".location__btnSearch");
-
 const forecast = document.querySelector(".forecast");
 const forecastBtnContainer = document.querySelector(".forecast__btn-container");
 const forecastContent = document.querySelectorAll(".forecast__content");
 const forecastContent1 = document.querySelector(".forecast__content--1");
-const forecastContent2 = document.querySelector(".forecast__content--2");
-const contentActive = document.querySelector(".forecast__content--active");
 const forecastContentTenDays = document.querySelector(
   ".forecast__content-tenDays"
 );
-
 const error = document.querySelector(".error");
 const btns = document.querySelectorAll(".btn");
-const btnTenDays = document.querySelector(".btn--2");
-const spinner = document.querySelectorAll(".spinner");
-
-const feelslikemax = document.querySelector(".feelslikemax");
-const feelslikemin = document.querySelector(".feelslikemin");
 
 forecastBtnContainer.addEventListener("click", function (e) {
   const target = e.target.closest(".btn");
@@ -161,6 +150,7 @@ const renderWeather = async function (city) {
     forecastContentTenDays.innerHTML = markupTenDays;
     cityName.style.display = "block";
     forecastBtnContainer.style.display = "flex";
+    console.log(data);
   } catch (err) {
     error.textContent = "We can not find the city. Please try again";
     forecast.style.display = "none";
@@ -171,6 +161,7 @@ const renderWeather = async function (city) {
 
 // document.addEventListener("keydown", function (e) {
 //   if (searchBox.value || e.key === "Enter") {
-//     renderWeatherToday(searchBox.value);
+//     renderWeather();
+//     console.log(searchBox.value);
 //   }
 // });

@@ -12,14 +12,22 @@ body {
   font-weight: 400; }
 
 .container {
-  background: linear-gradient(320deg, #9deaf8, #4d91f7);
   width: 90rem;
   min-height: 20rem;
   margin: 6rem auto;
   border-radius: 2rem;
-  text-align: center; }
+  text-align: center;
+  background-color: rgba(248, 242, 242, 0.132);
+  backdrop-filter: blur(7px); }
   .container__header {
     font-size: 6rem; }
+
+.video {
+  position: fixed;
+  top: 0;
+  background-size: cover;
+  max-width: 100vh;
+  max-height: 100vw; }
 
 .location {
   display: flex;
@@ -35,7 +43,8 @@ body {
     font-size: 2rem;
     outline: none;
     padding: 1rem;
-    border-radius: 2rem; }
+    border-radius: 2rem;
+    background-color: #ffffff80; }
   .location__btnSearch {
     font-size: 1.6rem;
     border: none;
@@ -45,7 +54,7 @@ body {
     cursor: pointer;
     background: transparent; }
   .location__btnSearch:hover {
-    box-shadow: 0 0 30px #2446ed; }
+    box-shadow: 0 0 30px #e1e2e6; }
 
 .forecast {
   display: none; }

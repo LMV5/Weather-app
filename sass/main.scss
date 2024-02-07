@@ -13,19 +13,33 @@ html {
 body {
   font-family: "Rubik", serif;
   font-weight: 400;
+  // position: relative;
 }
 
 .container {
-  background: linear-gradient(320deg, #9deaf8, #4d91f7);
+  // background: linear-gradient(320deg, #9deaf8, #4d91f7);
   width: 90rem;
   min-height: 20rem;
   margin: 6rem auto;
   border-radius: 2rem;
   text-align: center;
+  // position: absolute;
+  // top: 0;
+  // left: 30rem;
+  background-color: rgba(248, 242, 242, 0.132);
+  backdrop-filter: blur(7px);
 
   &__header {
     font-size: 6rem;
   }
+}
+
+.video {
+  position: fixed;
+  top: 0;
+  background-size: cover;
+  max-width: 100vh;
+  max-height: 100vw;
 }
 
 .location {
@@ -46,6 +60,7 @@ body {
     outline: none;
     padding: 1rem;
     border-radius: 2rem;
+    background-color: #ffffff80;
   }
 
   &__btnSearch {
@@ -59,7 +74,7 @@ body {
   }
 
   &__btnSearch:hover {
-    box-shadow: 0 0 30px #2446ed;
+    box-shadow: 0 0 30px #e1e2e6;
   }
 }
 
