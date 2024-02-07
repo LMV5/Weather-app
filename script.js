@@ -22,7 +22,7 @@ const spinner = document.querySelectorAll(".spinner");
 const feelslikemax = document.querySelector(".feelslikemax");
 const feelslikemin = document.querySelector(".feelslikemin");
 
-const convertToCelsuis = function (deg) {
+const convertToCelsius = function (deg) {
   return Math.trunc((deg - 32) * (5 / 9));
 };
 
@@ -115,14 +115,14 @@ const renderWeatherToday = async function (city) {
         <img class="icon forecast__feelslike-icon" src="./svg/${
           data.days[0].icon
         }.svg" alt="icon" />
-        <p class="forecast__feelslike-degNow">${convertToCelsuis(
+        <p class="forecast__feelslike-degNow">${convertToCelsius(
           data.days[0].feelslike
         )}  &deg;</p>
         <p class="forecast__feelslike-conditions">${data.days[0].conditions}</p>
-        <span class="forecast__feelslike-feelslikemax">H: ${convertToCelsuis(
+        <span class="forecast__feelslike-feelslikemax">H: ${convertToCelsius(
           data.days[0].feelslikemax
         )} &deg;</span> 
-        <span class="forecast__feelslike-feelslikemin">L: ${convertToCelsuis(
+        <span class="forecast__feelslike-feelslikemin">L: ${convertToCelsius(
           data.days[0].feelslikemin
         )} &deg;</span>
       </div>
@@ -165,10 +165,10 @@ const renderWeatherToday = async function (city) {
           <span class="content-tenDays-day">${formatDate(day.datetime)}</span>
         </div>
         <div class="forecast__content-tenDays-temp">
-          <span class="content-tenDays-tempmax">${convertToCelsuis(
+          <span class="content-tenDays-tempmax">${convertToCelsius(
             day.tempmax
           )} &deg;</span><span> &frasl; </span>
-          <span class="content-tenDays-tempmin">${convertToCelsuis(
+          <span class="content-tenDays-tempmin">${convertToCelsius(
             day.tempmin
           )} &deg;</span>
         </div>
