@@ -1,3 +1,5 @@
+import * as helper from "./helper.js";
+
 const container = document.querySelector(".container");
 const location = document.querySelector(".location");
 const cityName = document.querySelector(".location__cityName");
@@ -22,26 +24,6 @@ const spinner = document.querySelectorAll(".spinner");
 const feelslikemax = document.querySelector(".feelslikemax");
 const feelslikemin = document.querySelector(".feelslikemin");
 
-const convertToCelsius = function (deg) {
-  return Math.trunc((deg - 32) * (5 / 9));
-};
-
-const convertToKmH = function (mph) {
-  return Math.trunc(mph * 1, 609344);
-};
-
-const timeCut = function (time) {
-  return time.slice(0, 5);
-};
-
-const renderSpinner = function (parentEl) {
-  const markup = `
-    <div class="spinner">
-      <img src="./svg/spinner.svg" alt="spinner icon" />
-    </div>`;
-  parentEl.innerHTML = markup;
-};
-
 forecastBtnContainer.addEventListener("click", function (e) {
   const target = e.target.closest(".btn");
   if (!target) return;
@@ -52,8 +34,6 @@ forecastBtnContainer.addEventListener("click", function (e) {
   forecastContent.forEach((c) =>
     c.classList.remove("forecast__content--active")
   );
-
-  console.log(target.dataset.tab);
 
   document
     .querySelector(`.forecast__content--${target.dataset.tab}`)
@@ -94,7 +74,7 @@ const formatDate = function (inputDate) {
 const renderWeather = async function (city) {
   try {
     error.textContent = "";
-    renderSpinner(forecastContent1);
+    helper.renderSpinner(forecastContent1);
     const res = await fetch(
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=us&key=Z8AW25C8UNGXCU4SYU7ZP678B`
     );
@@ -102,9 +82,11 @@ const renderWeather = async function (city) {
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
 
-    cityName.textContent = `${
-      data.address[0].toUpperCase() + data.address.slice(1)
-    }`;
+    // cityName.textContent = `${
+    //   data.address[0].toUpperCase() + data.address.slice(1)
+    // }`;
+    let getCityName = data.resolvedAddress;
+    cityName.textContent = `${getCityName.split(",")[0]}`;
 
     const daysArray = data.days.slice(0, 10);
     let markupTenDays = "";
@@ -115,32 +97,32 @@ const renderWeather = async function (city) {
         <img class="icon forecast__feelslike-icon" src="./svg/${
           data.days[0].icon
         }.svg" alt="icon" />
-        <p class="forecast__feelslike-degNow">${convertToCelsius(
+        <p class="forecast__feelslike-degNow">${helper.convertToCelsius(
           data.days[0].feelslike
         )}  &deg;</p>
         <p class="forecast__feelslike-conditions">${data.days[0].conditions}</p>
-        <span class="forecast__feelslike-feelslikemax">H: ${convertToCelsius(
+        <span class="forecast__feelslike-feelslikemax">H: ${helper.convertToCelsius(
           data.days[0].feelslikemax
         )} &deg;</span> 
-        <span class="forecast__feelslike-feelslikemin">L: ${convertToCelsius(
+        <span class="forecast__feelslike-feelslikemin">L: ${helper.convertToCelsius(
           data.days[0].feelslikemin
         )} &deg;</span>
       </div>
       <div class="forecast__sunrise">
         <img class="icon" src="./svg/sunrise.svg" alt="sunrise icon" />
         <p>Sunrise</p>
-        <span>${timeCut(data.days[0].sunrise)}</span>
+        <span>${helper.timeCut(data.days[0].sunrise)}</span>
       </div>
       <div class="forecast__sunset">
         <img class="icon" src="./svg/sunset.svg" alt="sunset icon" />
         <p>Sunset</p>
-        <span>${timeCut(data.days[0].sunset)}</span>
+        <span>${helper.timeCut(data.days[0].sunset)}</span>
       </div>
 
       <div class="forecast__wind">
         <img class="icon" src="./svg/wind1.svg" alt="wind icon" />
         <p>Wind</p>
-        <span>${convertToKmH(data.days[0].windspeed)} km/h</span>
+        <span>${helper.convertToKmH(data.days[0].windspeed)} km/h</span>
       </div>
 
       <div class="forecast__humidity">
@@ -165,10 +147,10 @@ const renderWeather = async function (city) {
           <span class="content-tenDays-day">${formatDate(day.datetime)}</span>
         </div>
         <div class="forecast__content-tenDays-temp">
-          <span class="content-tenDays-tempmax">${convertToCelsius(
+          <span class="content-tenDays-tempmax">${helper.convertToCelsius(
             day.tempmax
           )} &deg;</span><span> &frasl; </span>
-          <span class="content-tenDays-tempmin">${convertToCelsius(
+          <span class="content-tenDays-tempmin">${helper.convertToCelsius(
             day.tempmin
           )} &deg;</span>
         </div>
@@ -178,8 +160,7 @@ const renderWeather = async function (city) {
     forecastContent1.innerHTML = markupToday;
     forecastContentTenDays.innerHTML = markupTenDays;
     cityName.style.display = "block";
-    console.log(data);
-    console.log(data.days[0].conditions);
+    forecastBtnContainer.style.display = "flex";
   } catch (err) {
     error.textContent = "We can not find the city. Please try again";
     forecast.style.display = "none";
