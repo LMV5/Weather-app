@@ -22,6 +22,10 @@ body {
   margin: 6rem auto;
   border-radius: 2rem;
   text-align: center;
+
+  &__header {
+    font-size: 6rem;
+  }
 }
 
 .location {

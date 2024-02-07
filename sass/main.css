@@ -22,6 +22,9 @@ body {
   border-radius: 2rem;
   text-align: center;
 }
+.container__header {
+  font-size: 6rem;
+}
 
 .location {
   display: flex;
