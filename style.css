@@ -14,7 +14,7 @@ body {
 .container {
   background: linear-gradient(320deg, #9deaf8, #4d91f7);
   width: 90rem;
-  min-height: 15rem;
+  min-height: 20rem;
   margin: 6rem auto;
   border-radius: 2rem;
   text-align: center; }
@@ -50,7 +50,7 @@ body {
 .forecast {
   display: none; }
   .forecast__btn-container {
-    display: flex;
+    display: none;
     margin: 1rem 2rem;
     gap: 4rem; }
   .forecast__content {

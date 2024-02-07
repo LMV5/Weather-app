@@ -177,6 +177,7 @@ const renderWeather = async function (city) {
     }
     forecastContent1.innerHTML = markupToday;
     forecastContentTenDays.innerHTML = markupTenDays;
+    cityName.style.display = "block";
     console.log(data);
     console.log(data.days[0].conditions);
   } catch (err) {
