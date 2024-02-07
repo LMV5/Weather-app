@@ -38,16 +38,17 @@
     box-shadow: 0 0 30px #2446ed; }
 
 .forecast {
-  display: none; }
+  display: none;
+  flex-direction: column; }
   .forecast__btn-container {
-    display: none;
+    display: flex;
     justify-content: flex-start;
     padding: 3rem 8rem;
     gap: 4rem; }
-  .forecast_content {
+  .forecast__content {
     padding: 3rem 3rem;
     display: none; }
-    .forecast_content--active {
+    .forecast__content--active {
       /* background-color: #68e839; */
       display: flex; }
   .forecast__content-today {

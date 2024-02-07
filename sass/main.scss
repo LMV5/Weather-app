@@ -50,17 +50,26 @@
 
 .forecast {
   display: none;
+  flex-direction: column;
 
   &__btn-container {
-    display: none;
+    display: flex;
     justify-content: flex-start;
     padding: 3rem 8rem;
     gap: 4rem;
   }
 
-  &_content {
+  &__content {
     padding: 3rem 3rem;
     display: none;
+
+    // &--1 {
+    //   display: none;
+    // }
+
+    // &--2 {
+    //   display: none;
+    // }
 
     &--active {
       /* background-color: #68e839; */
@@ -88,6 +97,7 @@
   }
 
   &__content-tenDays {
+    // display: none;
     padding-top: 1rem;
     width: 7rem;
     height: 7rem;
