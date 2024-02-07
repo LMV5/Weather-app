@@ -5,7 +5,7 @@
 
 .container {
   background: linear-gradient(320deg, #9deaf8, #4d91f7);
-  max-width: 80vw;
+  width: 50rem;
   min-height: 18rem;
   margin: 6rem auto;
   border-radius: 2rem;
@@ -46,23 +46,29 @@
     padding: 3rem 8rem;
     gap: 4rem; }
   .forecast__content {
-    padding: 3rem 3rem;
     display: none; }
     .forecast__content--active {
       /* background-color: #68e839; */
-      display: flex; }
+      display: grid; }
   .forecast__content-today {
-    display: flex;
-    gap: 2.5rem;
-    font-size: 1.5rem; }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 2rem;
+    font-size: 1.5rem;
+    justify-items: center;
+    padding: 1rem; }
   .forecast__content-today p {
     font-size: 1rem; }
   .forecast__content-today div {
+    display: grid;
     padding-top: 1rem;
-    width: 7rem;
-    height: 7rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 30px;
     background-color: rgba(108, 107, 107, 0.15);
+    justify-items: center;
+    align-items: center;
     /* backdrop-filter: blur(7px); */ }
   .forecast__content-tenDays {
     padding-top: 1rem;
@@ -81,7 +87,6 @@
   .btn:hover {
     background-color: #fff; }
   .btn--active {
-    background-color: #68e839;
     transform: translateY(-66%); }
 
 .spinner {
