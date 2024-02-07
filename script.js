@@ -112,13 +112,19 @@ const renderWeatherToday = async function (city) {
     const markupToday = `
     <div class="forecast__content-today">
       <div class="forecast__feelslike">
-        <img class="icon" src="./svg/${data.days[0].icon}.svg" alt="icon" />
-        <p>Feels like</p>
-        <p>${convertToCelsuis(data.days[0].feelslike)}  &deg;</p>
-        <span
-          >H: ${convertToCelsuis(data.days[0].feelslikemax)} &deg; &frasl; L:
-          ${convertToCelsuis(data.days[0].feelslikemin)} &deg;</span
-        >
+        <img class="icon forecast__feelslike-icon" src="./svg/${
+          data.days[0].icon
+        }.svg" alt="icon" />
+        <p class="forecast__feelslike-degNow">${convertToCelsuis(
+          data.days[0].feelslike
+        )}  &deg;</p>
+        <p class="forecast__feelslike-conditions">${data.days[0].conditions}</p>
+        <span class="forecast__feelslike-feelslikemax">H: ${convertToCelsuis(
+          data.days[0].feelslikemax
+        )} &deg;</span> 
+        <span class="forecast__feelslike-feelslikemin">L: ${convertToCelsuis(
+          data.days[0].feelslikemin
+        )} &deg;</span>
       </div>
       <div class="forecast__sunrise">
         <img class="icon" src="./svg/sunrise.svg" alt="sunrise icon" />
@@ -172,6 +178,7 @@ const renderWeatherToday = async function (city) {
     forecastContent1.innerHTML = markupToday;
     forecastContentTenDays.innerHTML = markupTenDays;
     console.log(data);
+    console.log(data.days[0].conditions);
   } catch (err) {
     error.textContent = "We can not find the city. Please try again";
     forecast.style.display = "none";
