@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+.body {
+  font-size: 62.5%;
+}
+
 .container {
   background: linear-gradient(320deg, #9deaf8, #4d91f7);
   width: 50rem;
@@ -27,10 +31,10 @@
   }
 
   &__input {
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     outline: none;
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 2rem;
   }
 
   &__btnSearch {
@@ -60,19 +64,9 @@
   }
 
   &__content {
-    // padding: 3rem 3rem;
     display: none;
 
-    // &--1 {
-    //   display: none;
-    // }
-
-    // &--2 {
-    //   display: none;
-    // }
-
     &--active {
-      /* background-color: #68e839; */
       display: grid;
     }
   }
@@ -87,20 +81,15 @@
     padding: 1rem;
   }
 
-  &__content-today p {
-    font-size: 1rem;
-  }
-
   &__content-today div {
     display: grid;
     padding-top: 1rem;
     width: 10rem;
     height: 10rem;
-    border-radius: 30px;
+    border-radius: 3rem;
     background-color: rgba(108, 107, 107, 0.15);
     justify-items: center;
     align-items: center;
-    /* backdrop-filter: blur(7px); */
   }
 
   &__content-tenDays {
@@ -110,6 +99,7 @@
     grid-gap: 2rem;
     justify-items: center;
     padding: 1rem;
+    font-size: 1.5rem;
   }
 
   &__content-tenDays .forecast__content-tenDays-day {
@@ -117,25 +107,24 @@
     padding-top: 1rem;
     width: 10rem;
     height: 10rem;
-    border-radius: 30px;
+    border-radius: 3rem;
     background-color: rgba(108, 107, 107, 0.15);
-    /* backdrop-filter: blur(7px); */
   }
 }
 
 .btn {
-  font-size: 1.6rem;
-  border-radius: 10px;
+  padding: 0.5rem;
+  background: transparent;
+  font-size: 1.2rem;
+  // border-radius: 2.5rem;
   border: none;
   transition: all 0.2s ease-in;
-  transform: translateY(-50%);
-
-  &:hover {
-    background-color: #fff;
-  }
+  // transform: translateY(-50%);
+  // box-shadow: 0 0 30px #2446ed;
+  cursor: pointer;
 
   &--active {
-    transform: translateY(-66%);
+    border-bottom: 1px solid #9deaf8;
   }
 }
 
@@ -159,15 +148,10 @@
 }
 
 .error {
-  /* display: none; */
   font-size: 1.4rem;
   padding-bottom: 1rem;
 }
 
-.feelslikemax {
-  font-size: 1rem;
-}
-
-.feelslikemin {
+.forecast__feelslike span {
   font-size: 1rem;
 }

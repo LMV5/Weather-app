@@ -114,15 +114,11 @@ const renderWeatherToday = async function (city) {
       <div class="forecast__feelslike">
         <img class="icon" src="./svg/${data.days[0].icon}.svg" alt="icon" />
         <p>Feels like</p>
-        <span>${convertToCelsuis(
-          data.days[0].feelslike
-        )}</span><span> &deg;</span>
-        <span class="feelslikemax">H: ${convertToCelsuis(
-          data.days[0].feelslikemax
-        )} &deg;</span>
-        <span class="feelslikemin">L: ${convertToCelsuis(
-          data.days[0].feelslikemin
-        )} &deg;</span>
+        <p>${convertToCelsuis(data.days[0].feelslike)}  &deg;</p>
+        <span
+          >H: ${convertToCelsuis(data.days[0].feelslikemax)} &deg; &frasl; L:
+          ${convertToCelsuis(data.days[0].feelslikemin)} &deg;</span
+        >
       </div>
       <div class="forecast__sunrise">
         <img class="icon" src="./svg/sunrise.svg" alt="sunrise icon" />
@@ -134,11 +130,13 @@ const renderWeatherToday = async function (city) {
         <p>Sunset</p>
         <span>${timeCut(data.days[0].sunset)}</span>
       </div>
+
       <div class="forecast__wind">
         <img class="icon" src="./svg/wind1.svg" alt="wind icon" />
         <p>Wind</p>
-        <span>${convertToKmH(data.days[0].windspeed)}</span> km/h<span></span>
+        <span>${convertToKmH(data.days[0].windspeed)} km/h</span>
       </div>
+
       <div class="forecast__humidity">
         <img class="icon" src="./svg/humidity.svg" alt="humidity icon" />
         <p>Humidity</p>
@@ -163,7 +161,7 @@ const renderWeatherToday = async function (city) {
         <div class="forecast__content-tenDays-temp">
           <span class="content-tenDays-tempmax">${convertToCelsuis(
             day.tempmax
-          )} &deg;</span>
+          )} &deg;</span><span> &frasl; </span>
           <span class="content-tenDays-tempmin">${convertToCelsuis(
             day.tempmin
           )} &deg;</span>
