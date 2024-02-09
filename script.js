@@ -42,6 +42,7 @@ const handleSearch = () => {
   } else {
     forecast.style.display = "block";
     renderWeather(searchBox.value);
+    searchBox.value = "";
   }
 };
 
