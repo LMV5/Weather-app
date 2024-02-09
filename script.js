@@ -29,17 +29,26 @@ forecastBtnContainer.addEventListener("click", function (e) {
     .classList.add("forecast__content--active");
 });
 
-searchBtn.addEventListener("click", function () {
-  forecast.style.display = "block";
-  renderWeather(searchBox.value);
-  searchBox.value = "";
-});
+const renderError = function (message) {
+  error.textContent = message;
+  forecast.style.display = "none";
+  forecastBtnContainer.style.display = "none";
+  cityName.style.display = "none";
+};
 
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
+const handleSearch = () => {
+  if (!/^[a-zA-Z\s]+$/.test(searchBox.value)) {
+    renderError("Invalid city name. Please enter letters only.");
+  } else {
     forecast.style.display = "block";
     renderWeather(searchBox.value);
   }
+};
+
+searchBtn.addEventListener("click", handleSearch);
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") handleSearch();
 });
 
 const formatDate = function (inputDate) {
@@ -156,9 +165,6 @@ const renderWeather = async function (city) {
     forecastBtnContainer.style.display = "flex";
     console.log(data);
   } catch (err) {
-    error.textContent = "We can not find the city. Please try again";
-    forecast.style.display = "none";
-    forecastBtnContainer.style.display = "none";
-    cityName.style.display = "none";
+    renderError("We can not find the city. Please try again");
   }
 };
