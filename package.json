@@ -4,7 +4,11 @@
   "description": "weather web application",
   "index": "index.html",
   "scripts": {
-    "compile:sass": "node-sass sass/main.scss style.css -w"
+    "compile:sass": "node-sass sass/main.scss css/style.css -w",
+    "concat:css": "concat -o css/style.concat.css css/style.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass prefix:css compress:css"
   },
   "author": "Marina Lapteva",
   "license": "ISC",
