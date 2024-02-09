@@ -13,6 +13,13 @@ html {
 body {
   font-family: "Rubik", serif;
   font-weight: 400; }
+  @media only screen and (max-width: 600px) {
+    body {
+      background-image: url(../img.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      min-height: 100vh; } }
 
 .container {
   width: 90rem;
@@ -45,6 +52,9 @@ body {
   background-size: cover;
   max-width: 100vh;
   max-height: 100vw; }
+  @media only screen and (max-width: 600px) {
+    .video {
+      display: none; } }
 
 .location {
   display: flex;
