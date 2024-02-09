@@ -93,7 +93,10 @@ body {
     outline: none;
     padding: 1rem;
     border-radius: 2rem;
-    background-color: #ffffff80;
+
+    &::placeholder {
+      color: #020e10;
+    }
   }
 
   &__btnSearch {
