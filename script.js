@@ -35,6 +35,13 @@ searchBtn.addEventListener("click", function () {
   searchBox.value = "";
 });
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    forecast.style.display = "block";
+    renderWeather(searchBox.value);
+  }
+});
+
 const formatDate = function (inputDate) {
   const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const months = [
@@ -71,9 +78,6 @@ const renderWeather = async function (city) {
 
     if (!res.ok) throw new Error(`${data.message} (${res.status})`);
 
-    // cityName.textContent = `${
-    //   data.address[0].toUpperCase() + data.address.slice(1)
-    // }`;
     let getCityName = data.resolvedAddress;
     cityName.textContent = `${getCityName.split(",")[0]}`;
 
@@ -158,10 +162,3 @@ const renderWeather = async function (city) {
     cityName.style.display = "none";
   }
 };
-
-// document.addEventListener("keydown", function (e) {
-//   if (searchBox.value || e.key === "Enter") {
-//     renderWeather();
-//     console.log(searchBox.value);
-//   }
-// });
