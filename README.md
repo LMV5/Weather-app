@@ -20,5 +20,5 @@ This web application allows users to search for weather forecasts by location. U
 
 ## Credits:
 
-This project was created by Marina Lapteva. It was inspired by tutorials and resources available online for learning web development.
+This project was created by Marina Lapteva.
 Weather data provided by Visual Crossing Weather API.
