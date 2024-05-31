@@ -1,6 +1,9 @@
 # WEATHER-APP 🌤️.
 This web application allows users to search for weather forecasts by location. Users can view today's forecast or the 10-day forecast for their desired location.
 
+![5](https://github.com/LMV5/Weather-app/assets/111173608/38ca0bf0-35c0-4d96-b439-d7625d82df7f)
+
+
 ## Usage:
 - Open [this URL](https://weather-appp1.netlify.app/) in a web browser to launch the application.
 - Enter the name of a city in the search box and press Enter or click the search button.
